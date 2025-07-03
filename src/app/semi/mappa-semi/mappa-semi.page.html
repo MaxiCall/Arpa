@@ -1,0 +1,18 @@
+<ion-header>
+
+</ion-header>
+
+<!-- Botones flotantes arriba, centrados -->
+<div class="floating-top-center-nav">
+  <ion-button (click)="goToList()" color="tertiary" [fill]="'solid'" shape="round">
+    <ion-icon slot="start" name="list-outline"></ion-icon>
+    Lista
+  </ion-button>
+  <ion-button (click)="goToMap()" color="primary" [fill]="'solid'" shape="round">
+    <ion-icon slot="start" name="map-outline"></ion-icon>
+    Mappa
+  </ion-button>
+</div>
+<ion-content>
+  <div #map id="map" style="height: 100%;"></div>
+</ion-content>

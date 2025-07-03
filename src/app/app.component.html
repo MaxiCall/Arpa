@@ -1,0 +1,32 @@
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>{{ currentTitle }}</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="toggleDarkMode()">
+          <ion-icon [name]="isDarkMode ? 'sunny-outline' : 'moon-outline'"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="main-content">
+    <ion-router-outlet></ion-router-outlet>
+  </ion-content>
+
+  <!-- Menú inferior fijo con 3 botones estilo header -->
+  <div class="bottom-menu">
+    <button [class.active]="isActive('/lista-semi')" (click)="navigateTo('/lista-semi')">
+      <ion-icon name="leaf-outline"></ion-icon>
+      <div>Semi</div>
+    </button>
+    <button [class.active]="isActive('/profilo')" (click)="navigateTo('/profilo')">
+      <ion-icon name="person-circle-outline"></ion-icon>
+      <div>Profilo</div>
+    </button>
+    <button [class.active]="isActive('/ricette')" (click)="navigateTo('/ricette')">
+      <ion-icon name="restaurant-outline"></ion-icon>
+      <div>Ricette</div>
+    </button>
+  </div>
+</div>

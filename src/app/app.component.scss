@@ -1,0 +1,54 @@
+.bottom-menu {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1002;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  background: var(--bottom-menu-bg); /* ← Usa la variable para modo claro/oscuro */
+  box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.10);
+  padding: 0;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  height: 60px;
+  transition: background 0.2s;
+}
+
+.bottom-menu button,
+.bottom-menu ion-button {
+  flex: 1 1 0;
+  margin: 0;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.15em;
+  font-weight: 600;
+  border-radius: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+  height: 100%;
+  letter-spacing: 0.01em;
+}
+
+.bottom-menu button.active,
+.bottom-menu ion-button.active {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.bottom-menu ion-icon {
+  font-size: 1.7em;
+  margin-bottom: 2px;
+}
+
+.bottom-menu div {
+  font-size: 0.93em;
+  font-weight: 500;
+  margin-top: 0;
+}

@@ -1,0 +1,40 @@
+<!-- Botones flotantes arriba, centrados -->
+<div class="floating-top-center-nav">
+ 
+  <ion-button (click)="goToList()" color="tertiary" [fill]="'solid'" shape="round">
+    <ion-icon slot="start" name="list-outline"></ion-icon>
+    Lista
+  </ion-button>
+  <ion-button (click)="goToMap()" color="primary" [fill]="'solid'" shape="round">
+    <ion-icon slot="start" name="map-outline"></ion-icon>
+    Mappa
+  </ion-button>
+</div>
+
+<ion-content class="ion-padding">
+  <div class="page-container">
+   
+    <section class="section-block">
+      <div class="cards-grid">
+
+        <ng-container *ngFor="let group of groupedVariedades">
+          <ion-card-header class="card-category-header">
+            <ion-card-title>{{ group.type }}</ion-card-title>
+          </ion-card-header>
+
+          <ion-card *ngFor="let variedad of group.items" (click)="goToDettagli(variedad.id)">
+            <img [src]="variedad.imageUrl" [alt]="'Immagine ' + variedad.name">
+            <ion-card-header>
+              <ion-card-title>{{ variedad.name }}</ion-card-title>
+              <ion-card-subtitle>Tipo: {{ variedad.type }}</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              {{ variedad.shortDescription }}
+              </ion-card-content>
+          </ion-card>
+        </ng-container>
+
+      </div>
+    </section>
+  </div>
+</ion-content>

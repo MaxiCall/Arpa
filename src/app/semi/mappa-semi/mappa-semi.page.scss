@@ -1,0 +1,36 @@
+// Botones flotantes arriba, centrados
+.floating-top-center-nav {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1001;
+  display: flex;
+  gap: 16px;
+  background: rgba(255,255,255,0.92);
+  border-radius: 28px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  padding: 6px 18px;
+  align-items: center;
+}
+.floating-top-center-nav ion-button {
+  font-size: 1.1em;
+  font-weight: 600;
+  min-width: 120px;
+  --padding-start: 22px;
+  --padding-end: 22px;
+  border-radius: 22px;
+}
+@media (max-width: 600px) {
+  .floating-top-center-nav {
+    top: 8px;
+    gap: 8px;
+    padding: 4px 8px;
+  }
+  .floating-top-center-nav ion-button {
+    font-size: 1em;
+    min-width: 90px;
+    --padding-start: 12px;
+    --padding-end: 12px;
+  }
+}
