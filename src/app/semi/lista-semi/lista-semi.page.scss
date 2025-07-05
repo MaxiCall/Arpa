@@ -1,203 +1,64 @@
-/* Animación de entrada para la lista de semillas */
-.cards-grid {
-  animation: listaFadeIn 0.6s cubic-bezier(0.33, 1, 0.68, 1);
-  will-change: opacity, transform;
-}
 
-@keyframes listaFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(32px) scale(0.98);
-    filter: blur(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-  }
-}
-
-body.dark-transition .cards-grid ion-card,
-body.dark-transition .cards-grid ion-card-title,
-body.dark-transition .cards-grid ion-card-subtitle,
-body.dark-transition .cards-grid ion-card-content,
-body.light-transition .cards-grid ion-card,
-body.light-transition .cards-grid ion-card-title,
-body.light-transition .cards-grid ion-card-subtitle,
-body.light-transition .cards-grid ion-card-content {
-  animation: themeFade 0.6s;
-  transition: transform 0.3s ease, background 0.2s, color 0.3s;
-  overflow: hidden;
-}
-
-body.dark .cards-grid ion-card,
-body.dark .cards-grid ion-card-title,
-body.dark .cards-grid ion-card-subtitle,
-body.dark .cards-grid ion-card-content {
-  color: #fff !important;
-}
-
-body:not(.dark) .cards-grid ion-card,
-body:not(.dark) .cards-grid ion-card-title,
-body:not(.dark) .cards-grid ion-card-subtitle,
-body:not(.dark) .cards-grid ion-card-content {
-  animation: themeFade 0.6s;
-  transition: background 0.3s, color 0.3s;
-}
-
-@keyframes themeFade {
-  from {
-    opacity: 0.2;
-    filter: blur(2px);
-  }
-  to {
-    opacity: 1;
-    filter: blur(0);
-  }
-}
-.page-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 15px;
-  padding-top: 30px;
-}
-
-h2 {
-  font-size: 1.8em;
-  color: var(--ion-color-secondary);
-  margin: 15px 0 20px;
-  text-align: center;
-}
-
-.section-block {
-  p {
-    font-size: 1.05em;
-    line-height: 1.7;
-    margin-bottom: 25px;
-    text-align: center;
-  }
-
-  .cards-grid {
-    display: grid;
-    gap: 15px;
-
-    @media (min-width: 600px) {
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    }
-    @media (min-width: 900px) {
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    }
-
-    ion-card {
-      margin: 0;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      background: var(--ion-card-background);
-      color: var(--ion-color-dark);
-      transition: transform 0.3s ease, background 0.2s;
-      overflow: hidden;
- 
-      &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-      }
-
-      img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        display: block;
-        border-bottom: 1px solid var(--ion-color-light-shade);
-      }
-
-      ion-card-header {
-        padding-bottom: 0;
-        background: transparent;
-      }
-
-      ion-card-title {
-        font-size: 1.3em;
-        font-weight: 600;
-        color: var(--ion-color-dark);
-      }
-
-      ion-card-subtitle {
-        font-size: 0.9em;
-        color: var(--ion-color-dark);
-        margin-top: 5px;
-        opacity: 0.85;
-      }
-
-      ion-card-content {
-        font-size: 1em;
-        line-height: 1.5;
-        padding-top: 10px;
-        color: var(--ion-color-dark);
-      }
-    }
-  }
-
-  .card-category-header {
-    margin: 25px 0 15px;
-    text-align: center;
-    grid-column: 1 / -1;
-    border-bottom: 2px solid var(--ion-color-tertiary);
-    padding-bottom: 10px;
-    background: transparent;
-
-    ion-card-title {
-      font-size: 1.6em;
-      font-weight: 700;
-      color: var(--ion-color-dark);
-    }
-  }
-}
-
-/* Botones flotantes arriba */
-
-/* Fondo blanco en modo claro, fondo oscuro en modo dark */
-.floating-top-center-nav {
-  position: fixed;
-  top: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1001;
+.seed-buttons-row {
   display: flex;
-  gap: 16px;
-  border-radius: 28px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  padding: 6px 18px;
+  flex-direction: row;
+  gap: 5px;
+  margin-bottom: 15px;
+  margin-top: 4px;
+  text-align: left;
+  margin-right: 90px;
+  margin-left: 25px;
+}
+.seed-icon-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  border-radius: 100%;
+  box-shadow: none;
+  display: flex;
   align-items: center;
-  color: var(--ion-text-color, #222);
-
-  ion-button {
-    font-size: 1.1em;
-    font-weight: 600;
-    min-width: 120px;
-    --padding-start: 22px;
-    --padding-end: 22px;
-    border-radius: 22px;
-    color: var(--ion-text-color, #222);
-  }
+  justify-content: center;
+}
+.seed-icon-btn img {
+  width: 55px;
+  height: 55px;
+}
+.custom-card {
+  background: #1d3105 !important;
+  border-radius: 38px;
+  color: #fff9de;
+  font-family: 'Gaegu', cursive;
+  width: 400px;
+  max-width: 400px;  // ✅ Arreglado
+  margin: 0 0 32px 0; // Margen solo abajo
+  box-shadow: 0 0 32px 0 #0002;
 }
 
-
-
-@media (max-width: 600px) {
-  .floating-top-center-nav {
-    top: 8px;
-    gap: 8px;
-    padding: 4px 8px;
-
-    ion-button {
-      font-size: 1em;
-      min-width: 90px;
-      --padding-start: 12px;
-      --padding-end: 12px;
-    }
-  }
+ion-content {
+  --padding-start: 0;
+  --padding-end: 0;
 }
 
-  .floating-top-center-nav ion-button {
-    color: #000;
-  }
+.custom-card ion-card-title {
+  font-family: 'Gaegu', cursive;
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 5px;
+  text-align: left !important;
+  margin-left: 25px;
+}
+.custom-card ion-card-content img.seed-img {
+  width: 100%;
+  height: 110px;
+  max-height: 110px;
+  min-height: 110px;
+  object-fit: cover;
+  display: block;
+  border-radius: 0 0 22px 22px;
+  border: none;
+  margin: 0;
+  box-shadow: none;
+}
+

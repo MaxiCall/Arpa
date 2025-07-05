@@ -13,7 +13,7 @@ import {
   IonCardSubtitle,
   IonCardContent,
   IonImg,
-  NavController,IonIcon,IonButton, IonTitle,IonBackButton, IonToolbar,
+  NavController, IonIcon, IonButton, IonTitle, IonBackButton, IonToolbar,
   IonButtons,
   IonHeader
 } from '@ionic/angular/standalone';
@@ -55,7 +55,7 @@ interface GroupedSemillas {
     IonCardTitle,
     IonCardSubtitle,
     IonCardContent, RouterLink,
-    IonImg,IonIcon,IonButton, IonTitle,IonBackButton, IonToolbar, IonButtons ,IonHeader
+    IonImg, IonIcon, IonButton, IonTitle, IonBackButton, IonToolbar, IonButtons, IonHeader
   ]
 })
 export class ListaSemiPage implements OnInit {
@@ -116,39 +116,39 @@ export class ListaSemiPage implements OnInit {
    */
   private getCategoryName(semilla: Semilla): string {
     switch (semilla.type) {
-        case 'Cavolo':
-        case 'Cima di rapa':
-            return 'Cavolo';
-        case 'Cocomero':
-            return 'Cocomero';
-        case 'Legume':
-            // Agrupamos bajo "Fagiolo" si el nombre indica que es un frijol/haba
-            if (semilla.name.startsWith('Fagiol') || semilla.name === 'Fave' || semilla.name === 'Favino') {
-                return 'Fagiolo';
-            }
-            return 'Altre Varietà'; // Cicerchia es Legume pero estaba en "Altre Varietà"
-        case 'Ortaggio':
-            if (semilla.name.includes('Melanzana')) return 'Melanzana';
-            if (semilla.name.startsWith('Peperon')) return 'Peperone';
-            if (semilla.name.startsWith('Pomodoro')) return 'Pomodoro';
-            if (semilla.name.startsWith('Zucca')) return 'Zucca';
-            // Otras variedades de tipo 'Ortaggio' que estaban en "Altre Varietà"
-            if (semilla.name.startsWith('Cipolla') || semilla.name.startsWith('Insalata') ||
-                semilla.name.startsWith('Rapi') || semilla.name.startsWith('Sedano') ||
-                semilla.name.startsWith('Aglione')) { // Aglione era 'Aglione' type pero estaba bajo 'Altre Varietà'
-                return 'Altre Varietà';
-            }
-            return 'Altre Varietà';
-        case 'Frutto':
-            if (semilla.name.startsWith('Melone')) return 'Melone';
-            return 'Altre Varietà';
-        case 'Aglione': // Si Aglione tiene su propia categoría en el TS, pero se muestra en "Altre Varietà"
-            return 'Altre Varietà';
-        case 'Cereale':
-        case 'Foraggera':
-            return 'Altre Varietà';
-        default:
-            return 'Altre Varietà'; // Para cualquier otro tipo no clasificado
+      case 'Cavolo':
+      case 'Cima di rapa':
+        return 'Cavolo';
+      case 'Cocomero':
+        return 'Cocomero';
+      case 'Legume':
+        // Agrupamos bajo "Fagiolo" si el nombre indica que es un frijol/haba
+        if (semilla.name.startsWith('Fagiol') || semilla.name === 'Fave' || semilla.name === 'Favino') {
+          return 'Fagiolo';
+        }
+        return 'Altre Varietà'; // Cicerchia es Legume pero estaba en "Altre Varietà"
+      case 'Ortaggio':
+        if (semilla.name.includes('Melanzana')) return 'Melanzana';
+        if (semilla.name.startsWith('Peperon')) return 'Peperone';
+        if (semilla.name.startsWith('Pomodoro')) return 'Pomodoro';
+        if (semilla.name.startsWith('Zucca')) return 'Zucca';
+        // Otras variedades de tipo 'Ortaggio' que estaban en "Altre Varietà"
+        if (semilla.name.startsWith('Cipolla') || semilla.name.startsWith('Insalata') ||
+          semilla.name.startsWith('Rapi') || semilla.name.startsWith('Sedano') ||
+          semilla.name.startsWith('Aglione')) { // Aglione era 'Aglione' type pero estaba bajo 'Altre Varietà'
+          return 'Altre Varietà';
+        }
+        return 'Altre Varietà';
+      case 'Frutto':
+        if (semilla.name.startsWith('Melone')) return 'Melone';
+        return 'Altre Varietà';
+      case 'Aglione': // Si Aglione tiene su propia categoría en el TS, pero se muestra en "Altre Varietà"
+        return 'Altre Varietà';
+      case 'Cereale':
+      case 'Foraggera':
+        return 'Altre Varietà';
+      default:
+        return 'Altre Varietà'; // Para cualquier otro tipo no clasificado
     }
   }
 
@@ -160,11 +160,11 @@ export class ListaSemiPage implements OnInit {
 
     // Rellenamos el mapa con las semillas agrupadas
     this.variedades.forEach(semilla => {
-        const categoryName = this.getCategoryName(semilla);
-        if (!groupsMap.has(categoryName)) {
-            groupsMap.set(categoryName, []);
-        }
-        groupsMap.get(categoryName)?.push(semilla);
+      const categoryName = this.getCategoryName(semilla);
+      if (!groupsMap.has(categoryName)) {
+        groupsMap.set(categoryName, []);
+      }
+      groupsMap.get(categoryName)?.push(semilla);
     });
 
     // Convertimos el mapa a un array de objetos GroupedSemillas
@@ -172,24 +172,24 @@ export class ListaSemiPage implements OnInit {
 
     // Definimos un orden preferido para las categorías, con "Altre Varietà" al final
     const preferredOrder = [
-        'Cavolo', 'Cocomero', 'Fagiolo', 'Melanzana', 'Melone', 'Peperone',
-        'Pomodoro', 'Zucca', 'Altre Varietà'
+      'Cavolo', 'Cocomero', 'Fagiolo', 'Melanzana', 'Melone', 'Peperone',
+      'Pomodoro', 'Zucca', 'Altre Varietà'
     ];
 
     // Ordenamos los grupos de categorías
     this.groupedVariedades.sort((a, b) => {
-        const indexA = preferredOrder.indexOf(a.type);
-        const indexB = preferredOrder.indexOf(b.type);
+      const indexA = preferredOrder.indexOf(a.type);
+      const indexB = preferredOrder.indexOf(b.type);
 
-        if (indexA === -1 && indexB === -1) return a.type.localeCompare(b.type); // Si ambos no están en el orden preferido, ordenamos alfabéticamente
-        if (indexA === -1) return 1; // Si 'a' no está en el orden preferido y 'b' sí, 'b' va primero
-        if (indexB === -1) return -1; // Si 'b' no está en el orden preferido y 'a' sí, 'a' va primero
-        return indexA - indexB; // Ordenamos según el índice en preferredOrder
+      if (indexA === -1 && indexB === -1) return a.type.localeCompare(b.type); // Si ambos no están en el orden preferido, ordenamos alfabéticamente
+      if (indexA === -1) return 1; // Si 'a' no está en el orden preferido y 'b' sí, 'b' va primero
+      if (indexB === -1) return -1; // Si 'b' no está en el orden preferido y 'a' sí, 'a' va primero
+      return indexA - indexB; // Ordenamos según el índice en preferredOrder
     });
 
     // Ordenamos las semillas dentro de cada grupo alfabéticamente por nombre
     this.groupedVariedades.forEach(group => {
-        group.items.sort((a, b) => a.name.localeCompare(b.name));
+      group.items.sort((a, b) => a.name.localeCompare(b.name));
     });
   }
 
@@ -197,12 +197,9 @@ export class ListaSemiPage implements OnInit {
   goToDettagli(id: string) {
     this.router.navigate(['/dettagli-semi', id]);
   }
-goToMap() {
-  this.router.navigate(['/mappa-semi']);
-}
 
-  goToList() {
-    this.router.navigate(['/lista-semi']);
+  navigateTo(path: string) {
+    this.router.navigate([path]);
   }
   // La función showOnMap se mantiene igual, aunque no se usa directamente en el HTML
   // Puedes añadir un botón para ella si lo necesitas.
