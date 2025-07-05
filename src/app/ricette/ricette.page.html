@@ -1,13 +1,78 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>ricette</ion-title>
-  </ion-toolbar>
-</ion-header>
+<!-- Botones flotantes arriba, centrados -->
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">ricette</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+<ion-content class="ion-padding">
+  <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <div class="page-container">
+   
+    <section class="section-block">
+      <div class="cards-grid">
+
+      
+       
+
+<div style="display: flex; justify-content: center; width: 100%;">
+  <ion-card class="custom-card first-recipe">
+    <ion-card-title style="display:block; margin-top:18px; font-family:'Gaegu',cursive; color:#fff9de; font-size:2em; font-weight:700;">Condividi la tua ricetta!</ion-card-title>
+    <ion-card-content style="padding:0; margin:0;">
+      <img src="assets/forma.png" alt="Condividi la tua ricetta" style="display: block; margin: 0 auto; position: relative; margin-bottom:10px; margin-top: -17px;" />
+      <span class="centered-ingredient-text">
+        Scrivi la tua lista di ingredienti...
+      </span>
+    </ion-card-content>
+  </ion-card>
+</div>
+
+<div style="display: flex; justify-content: center; width: 100%;">
+  <ion-card class="custom-card">
+    <ion-card-title style="display:block;  margin-top:18px; font-family:'Gaegu',cursive;  margin-left: 15px;color:#fff9de; font-size:2em; font-weight:700;">Zuppa di fagioli americani</ion-card-title>
+    <ion-card-content style="padding:0; margin:0;">
+      <img src="assets/semi4.png"  style="width: 110%; max-width: 430px; margin-left: -5%;" class="img.seed-img" alt="Zuppa di fagioli americani" />
+  
+      <div class="seed-buttons-container aligned-left">
+  <img src="assets/farmer-4.png" class="author-avatar" alt="Farmer" (click)="navigateTo('/mappa-semi')" style="cursor:pointer;" />
+  <div class="seed-info">
+    <span class="seed-author">Ricetta di Antonietta</span>
+    <div class="icon-row" style="margin-left: -7px;">
+      <img src="assets/icona-cuore1.png" alt="Me gusta" />
+
+      <img src="assets/icone-commento1.png" alt="Comentario"style="margin-left: -9px;" />
+
+    </div>
+  </div>
+</div>
+
+    </ion-card-content>
+  </ion-card>
+</div>
+
+
+<div style="display: flex; justify-content: center; width: 100%;">
+  <ion-card class="custom-card">
+    <ion-card-title style="display:block;  margin-top:18px; font-family:'Gaegu',cursive; color:#fff9de; font-size:2em; font-weight:700;">Zuppa di fagioli americani</ion-card-title>
+    <ion-card-content style="padding:0; margin:0;">
+      <img src="assets/semi5.png" style="width: 110%; max-width: 430px; margin-left: -6%;" class="img.seed-img" alt="Zuppa di fagioli americani" />
+  
+      <div class="seed-buttons-container aligned-left">
+  <img src="assets/farmer-1.png" class="author-avatar" alt="Farmer" (click)="navigateTo('/mappa-semi')" style="cursor:pointer;" />
+  <div class="seed-info">
+    <span class="seed-author">Ricetta di Ugo</span>
+    <div class="icon-row" style="margin-left: -7px;">
+      <img src="assets/icona-cuore.png" alt="Me gusta" />
+
+      <img src="assets/icone-commento.png" alt="Comentario" style="margin-left: -9px;" />
+
+    </div>
+  </div>
+</div>
+
+    </ion-card-content>
+  </ion-card>
+</div>
+
+     
+
+      </div>
+    </section>
+  </div>
 </ion-content>
