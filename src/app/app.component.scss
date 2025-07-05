@@ -7,12 +7,8 @@
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  background: var(--bottom-menu-bg); /* ← Usa la variable para modo claro/oscuro */
-  box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.10);
+  background: #697f42 !important; /* ← Cambiado a #1d3105 */
   padding: 0;
-  border-top-left-radius: 18px;
-  border-top-right-radius: 18px;
-  height: 60px;
   transition: background 0.2s;
 }
 
@@ -25,7 +21,7 @@
   color: #fff;
   font-size: 1.15em;
   font-weight: 600;
-  border-radius: 0;
+
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -51,4 +47,8 @@
   font-size: 0.93em;
   font-weight: 500;
   margin-top: 0;
+}
+
+ion-content .inner-scroll {
+  background: #fff9de !important;
 }
