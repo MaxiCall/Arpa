@@ -1,24 +1,69 @@
 <ion-content class="ion-padding">
-  <div class="header-image-container" *ngIf="semilla">
-    <div class="header-image-wrapper">
-      <img class="header-image" [src]="semilla.imageUrl" [alt]="'Imagen de ' + semilla.name" />
-      <button class="back-btn" (click)="goBack()">
-        <ion-icon name="arrow-back"></ion-icon>
-      </button>
-      <div class="header-title-overlay">
-        <h1 class="header-title">{{ semilla.name }}</h1>
-      
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <div class="page-container">
+    <section class="section-block">
+      <div class="cards-grid">
+
+        <div style="display: flex; justify-content: center; width: 100%;">
+          <ion-card class="custom-card" style="min-height: 950px;">
+
+            <!-- Título -->
+            <ion-card-title style="display:block; text-align:center; margin-top:18px; font-family:'Gaegu',cursive; color:#fff9de; font-size:2em; font-weight:700;">
+              {{ semilla?.name }}
+            </ion-card-title>
+
+            <!-- Imagen principal -->
+            <ion-card-content style="padding:0; margin:0;">
+              <img [src]="semilla?.imageUrl"
+                   [alt]="semilla?.name || 'seme'"
+                   style="width: 110%; max-width: 430px; margin-left: -4%;" />
+
+              <!-- Contenido lateral: granjeros + recetas -->
+              <div *ngIf="semilla?.cultivators?.length > 0"
+                   style="display: flex; flex-direction: column; align-items: flex-start; margin-top: 10px; gap: 10px; width: 100%; padding-left: 12px;">
+
+                <!-- Loop de granjeros -->
+                <div *ngFor="let cultivator of semilla.cultivators"
+                     style="display: flex; align-items: center; gap: 10px; cursor:pointer;">
+                  <img [src]="cultivator.image"
+                       [alt]="cultivator.name"
+                       style="width: 60px; height: auto; border-radius: 6px;"
+                       (click)="goToMappaSemi(semilla?.id)" />
+                  <span style="font-family: 'Montserrat', sans-serif; color: #fff; font-size: 1.1em;">
+                    Coltivato da {{ cultivator.name }}
+                  </span>
+                </div>
+
+                <!-- Botón ver recetas -->
+                <div style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                  <img src="assets/ricette-icon.png"
+                       alt="Ricette"
+                       style="width: 60px; height: auto;"
+                       (click)="goToRicette(semilla?.id)" />
+                  <span style="font-family: 'Montserrat', sans-serif; color: #fff; font-size: 1.1em;">
+                    Vedi le ricette
+                  </span>
+                </div>
+
+              </div>
+    </ion-card-content>
+    <!-- Banner técnico abajo -->
+    <div style="position:relative; width:100%; max-width:430px; min-height:220px; margin-bottom:100px; margin:0  auto 0 auto;">
+      <img src="assets/banner-1.png" alt="Banner tecnico" style="width:100%; min-height:400px; height:400px; max-height:100%; object-fit:cover; border-radius: 12px;" />
+      <div style="position:absolute; top:0; left:0; width:100%; min-height:340px; height:100%; display:flex; flex-direction:column; align-items:flex-start; justify-content:center; padding: 32px 32px 0 32px; color:#b6572c; font-family:'Montserrat',sans-serif;">
+        <ion-card-title style="text-align:left; font-size:3em; color:#b6572c; font-family:'Gaegu',cursive; text-shadow: 0 2px 8px #fff9de;">Scheda tecnica</ion-card-title>
+        <p style="margin:0; font-size:1.1em;"><ion-icon name="leaf-outline"></ion-icon> <b>AVVICENDAMENTO:</b></p>
+        <p style="white-space: pre-line; margin:0 0 12px 0;">{{ semilla?.schedaTecnica?.avvicendamento || '—' }}</p>
+        <p style="margin:0; font-size:1.1em;"><ion-icon name="leaf-outline"></ion-icon> <b>PREPARAZIONE DEL TERRENO:</b></p>
+        <p style="white-space: pre-wrap; margin:0;">{{ semilla?.preparazioneTerreno?.preparazioneTerreno || '—' }}</p>
       </div>
     </div>
-  </div>
-  <div class="semi-details" *ngIf="semilla">
-   
 
-    <h3>Descripción</h3>
-    <p>{{ semilla.shortDescription }}</p>
+          </ion-card>
+        </div>
 
-    <h3>Detalles</h3>
-    <p [innerHTML]="semilla.longDescription"></p>
-
+      </div>
+    </section>
   </div>
 </ion-content>
