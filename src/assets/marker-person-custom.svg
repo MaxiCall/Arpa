@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 45" width="32" height="45">
+  <defs>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Pin shape -->
+  <path d="M16 0C7.2 0 0 7.2 0 16c0 12 16 29 16 29s16-17 16-29c0-8.8-7.2-16-16-16z" 
+        fill="#2d4016" 
+        stroke="#1a2a0b" 
+        stroke-width="0.5" 
+        filter="url(#shadow)"/>
+  
+  <!-- Inner circle (orange background) -->
+  <circle cx="16" cy="16" r="11" fill="#e6944a" stroke="#d4834f" stroke-width="0.5"/>
+  
+  <!-- Person icon -->
+  <g transform="translate(16,16)" fill="#2d4016">
+    <!-- Head -->
+    <circle cx="0" cy="-3" r="2.5"/>
+    
+    <!-- Body/torso -->
+    <path d="M-3.5 2.5 C-3.5 -0.5, -2.5 -1.5, 0 -1.5 C2.5 -1.5, 3.5 -0.5, 3.5 2.5 L3.5 5 C3.5 6, 2.5 6.5, 0 6.5 C-2.5 6.5, -3.5 6, -3.5 5 Z"/>
+    
+    <!-- Arms -->
+    <ellipse cx="-4.5" cy="0.5" rx="1.2" ry="3" transform="rotate(-15 -4.5 0.5)"/>
+    <ellipse cx="4.5" cy="0.5" rx="1.2" ry="3" transform="rotate(15 4.5 0.5)"/>
+    
+    <!-- Legs -->
+    <ellipse cx="-2" cy="7" rx="1.2" ry="2.5"/>
+    <ellipse cx="2" cy="7" rx="1.2" ry="2.5"/>
+  </g>
+</svg> 

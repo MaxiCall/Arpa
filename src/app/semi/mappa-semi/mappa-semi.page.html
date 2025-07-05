@@ -1,0 +1,74 @@
+
+<ion-content class="main-content">
+  <div class="container">
+    <!-- Profile Section -->
+    <div class="profile-section">
+      <div class="profile-card">
+        <div class="profile-image">
+          <img [src]="currentFarmer.imageUrl" [alt]="currentFarmer.name" />
+        </div>
+        <div class="profile-info">
+          <h2>{{currentFarmer.name}}</h2>
+          <div class="contact-info">
+            <p class="status">Status: {{currentFarmer.status}}</p>
+            <p class="phone">📞 {{currentFarmer.phone}}</p>
+            <p class="email">📧 {{currentFarmer.email}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map Section -->
+    <div class="map-section">
+      <div class="map-container">
+        <div #map id="map"></div>
+      </div>
+    </div>
+
+    <!-- Seeds Section -->
+    <div class="seeds-section">
+      <div class="seeds-card">
+        <h3>I miei semi</h3>
+        <div class="seeds-grid">
+          <div class="seed-item">
+            <img src="assets/seedIcon1.png" alt="Semi verdi" />
+          </div>
+          <div class="seed-item">
+            <img src="assets/seedIcon2.png" alt="Semi marroni" />
+          </div>
+          <div class="seed-item">
+            <img src="assets/seedIcon3.png" alt="Semi misti" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+      <div class="nav-item active" (click)="goToMap()">
+        <div class="nav-icon">
+          <ion-icon name="location"></ion-icon>
+        </div>
+        <span>Mappa</span>
+      </div>
+      <div class="nav-item" (click)="goToList()">
+        <div class="nav-icon">
+          <ion-icon name="leaf"></ion-icon>
+        </div>
+        <span>Semi</span>
+      </div>
+      <div class="nav-item" (click)="goToRecipes()">
+        <div class="nav-icon">
+          <ion-icon name="restaurant"></ion-icon>
+        </div>
+        <span>Ricetta</span>
+      </div>
+      <div class="nav-item" (click)="goToArpa()">
+        <div class="nav-icon">
+          <ion-icon name="business"></ion-icon>
+        </div>
+        <span>Arpa</span>
+      </div>
+    </div>
+  </div>
+</ion-content>

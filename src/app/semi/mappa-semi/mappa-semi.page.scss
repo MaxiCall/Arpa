@@ -1,0 +1,304 @@
+/* Main Content Styling */
+.main-content {
+  --background: #f5f2e8;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+  background: #f5f2e8;
+  padding: 20px 16px 100px 16px;
+}
+
+/* Profile Section */
+.profile-section {
+  margin-bottom: 20px;
+}
+
+.profile-card {
+  background: #4a5c3a;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  max-width: 100px;
+  max-height: 100px;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.profile-info {
+  flex: 1;
+  color: white;
+
+  h2 {
+    font-family: 'Gaegu', cursive;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+    color: white;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8 rem;
+      line-height: 1.3;
+      margin: 0;
+      color: #e8d49a;
+      
+      &.status {
+        font-weight: 600;
+        color: #c6d4a3;
+      }
+      
+      &.phone, &.email {
+        color: #e8d49a;
+      }
+    }
+  }
+}
+
+/* Map Section */
+.map-section {
+  margin-bottom: 20px;
+}
+
+.map-container {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  height: 280px;
+  position: relative;
+  border: 2px solid #e8d49a;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #4a5c3a, #e8d49a);
+    border-radius: 22px;
+    z-index: -1;
+  }
+  
+  #map {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+  }
+}
+
+/* Seeds Section */
+.seeds-section {
+  margin-bottom: 20px;
+}
+
+.seeds-card {
+  background: #4a5c3a;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    font-family: 'Gaegu', cursive;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin: 0 0 16px 0;
+  }
+}
+
+.seeds-grid {
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+}
+
+.seed-item {
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #4a5c3a;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 16px 0 20px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 12px;
+  
+  &.active {
+    .nav-icon {
+      background: #e8d49a;
+      color: #4a5c3a;
+    }
+    
+    span {
+      font-family: 'Montserrat', sans-serif;
+      color: #e8d49a;
+      font-weight: 600;
+    }
+  }
+  
+  &:not(.active) {
+    .nav-icon {
+      background: transparent;
+      color: #a8b89a;
+    }
+    
+    span {
+      font-family: 'Montserrat', sans-serif;
+      color: #a8b89a;
+    }
+  }
+}
+
+.nav-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  
+  ion-icon {
+    font-size: 20px;
+  }
+}
+
+.nav-item span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .container {
+    padding: 16px 12px 100px 12px;
+  }
+  
+  .profile-card {
+    padding: 16px;
+    gap: 12px;
+  }
+  
+  .profile-image {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .profile-info h2 {
+    font-size: 1.6rem;
+  }
+  
+  .profile-info p {
+    font-size: 0.9rem;
+  }
+  
+  .map-container {
+    height: 250px;
+  }
+  
+  .seeds-card {
+    padding: 16px;
+  }
+  
+  .seeds-grid {
+    gap: 12px;
+  }
+  
+  .seed-item {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .bottom-nav {
+    padding: 12px 0 16px 0;
+  }
+  
+  .nav-item {
+    padding: 6px 12px;
+  }
+  
+  .nav-icon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Custom Google Maps Styling */
+.gm-style {
+  border-radius: 20px;
+}
+
+.gm-style-iw {
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.gm-style-iw-d {
+  border-radius: 12px;
+}
+
+.gm-style-iw-c {
+  border-radius: 12px;
+  padding: 0;
+}
+
+.gm-style-iw-t::after {
+  display: none;
+}
+
+

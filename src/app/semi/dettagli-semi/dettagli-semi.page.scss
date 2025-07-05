@@ -1,0 +1,336 @@
+/* Animación de entrada para la vista de detalles */
+.semi-details {
+  animation: dettagliFadeIn 0.7s cubic-bezier(0.33, 1, 0.68, 1);
+  will-change: opacity, transform;
+}
+
+@keyframes dettagliFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(32px) scale(0.98);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* --- OPTIMIZACIÓN: Espaciado y menú inferior --- */
+.semi-details {
+  box-sizing: border-box;
+  min-height: calc(100vh - 60px); /* Ajusta 60px según la altura real del menú */
+  padding: 1rem 1rem 6.5rem 1rem; /* padding-bottom para menú fijo */
+}
+
+ion-tab-bar, .bottom-menu, ion-footer {
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.10);
+  border-top: 1px solid #e0e0e0;
+  background: var(--ion-background-color, #fff);
+  z-index: 1002;
+}
+
+:host {
+  display: block;
+}
+
+// Transiciones suaves entre temas
+* {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+/* Sección de bloques con tarjetas */
+.section-block {
+  p {
+    font-size: 1.05em;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  .cards-grid {
+    display: grid;
+    gap: 15px;
+
+    @media (min-width: 600px) {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    @media (min-width: 900px) {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    ion-card {
+      margin: 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      background: var(--ion-card-background);
+      color: var(--ion-color-dark);
+      transition: transform 0.3s ease, background 0.2s;
+      overflow: hidden;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      }
+
+      img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+        border-bottom: 1px solid var(--ion-color-light-shade);
+      }
+
+      ion-card-header {
+        padding-bottom: 0;
+        background: transparent;
+      }
+
+      ion-card-title {
+        font-size: 1.3em;
+        font-weight: 600;
+        color: var(--ion-color-dark);
+      }
+
+      ion-card-subtitle {
+        font-size: 0.9em;
+        color: var(--ion-color-dark);
+        margin-top: 5px;
+        opacity: 0.85;
+      }
+
+      ion-card-content {
+        font-size: 1em;
+        line-height: 1.5;
+        padding-top: 10px;
+        color: var(--ion-color-dark);
+      }
+    }
+  }
+
+  .card-category-header {
+    margin: 25px 0 15px;
+    text-align: center;
+    grid-column: 1 / -1;
+    border-bottom: 2px solid var(--ion-color-tertiary);
+    padding-bottom: 10px;
+    background: transparent;
+
+    ion-card-title {
+      font-size: 1.6em;
+      font-weight: 700;
+      color: var(--ion-color-dark);
+    }
+  }
+}
+
+/* Botones flotantes superiores */
+.floating-top-center-nav {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1001;
+  display: flex;
+  gap: 16px;
+  border-radius: 28px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 6px 18px;
+  align-items: center;
+  color: var(--ion-text-color, #222);
+
+  ion-button {
+    font-size: 1.1em;
+    font-weight: 600;
+    min-width: 120px;
+    --padding-start: 22px;
+    --padding-end: 22px;
+    border-radius: 22px;
+    color: var(--ion-text-color, #222);
+  }
+}
+
+@media (max-width: 600px) {
+  .floating-top-center-nav {
+    top: 8px;
+    gap: 8px;
+    padding: 4px 8px;
+
+    ion-button {
+      font-size: 1em;
+      min-width: 90px;
+      --padding-start: 12px;
+      --padding-end: 12px;
+    }
+  }
+}
+
+
+// Detalles de la semilla
+.semi-details {
+  h3 {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--ion-color-primary);
+  }
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--ion-text-color);
+  }
+  strong {
+    color: var(--ion-color-medium);
+  }
+}
+
+// Tema claro
+body:not(.dark) {
+  background-color: #f9f9f9;
+  color: #1e1e1e;
+
+  .semi-details {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .back-btn {
+    background: rgba(255, 255, 255, 0.7);
+
+    ion-icon {
+      color: #000;
+    }
+  }
+}
+
+// Tema oscuro
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+
+  .semi-details {
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
+  }
+
+  h3 {
+    color: var(--ion-color-primary);
+  }
+
+  p {
+    color: #d0d0d0;
+  }
+
+  .back-btn {
+    background: rgba(0, 0, 0, 0.6);
+
+    ion-icon {
+      color: #fff;
+    }
+  }
+}
+
+
+/* Encabezado visual */
+.header-image-wrapper {
+  position: relative;
+  width: 100vw;
+  max-width: 100vw;
+  height: 180px;
+  overflow: hidden;
+  display: block;
+  margin-top: -18px;
+  left: -16px;
+}
+
+.header-image {
+  object-fit: cover;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+  border: none !important;
+  background: #fff;
+  transition: width 0.2s, height 0.2s;
+  display: block;
+  height: 180px;
+}
+
+.back-btn {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--ion-color-primary);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.3em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+  cursor: pointer;
+  transition: background 0.2s;
+  z-index: 2;
+}
+.back-btn:hover {
+  background: var(--ion-color-primary-shade);
+}
+
+.header-title-overlay {
+  position: absolute;
+  top: 120px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(to top, rgba(141, 138, 138, 0.7) 0%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.0) 100%);
+  z-index: 1;
+  padding: 18px 0 10px 0;
+}
+
+.header-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.header-title {
+  margin: 12px 0 0 0;
+  font-size: 5em;
+  font-weight: 900;
+  text-align: center;
+  color: #fff;
+  line-height: 1.1;
+  text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000,
+     0 2px 8px rgba(0,0,0,0.18);
+}
+
+
+
+@media (max-width: 600px) {
+  .header-image-container,
+  .header-image-wrapper {
+    width: 100vw;
+    max-width: 100vw;
+  }
+  .header-image {
+    height: 180px;
+    width: 100vw;
+    max-width: 100vw;
+  }
+  .header-title {
+    font-size: 1.3em;
+  }
+  .header-row {
+    gap: 8px;
+  }
+  .semi-details {
+    padding-bottom: 7.5rem !important;
+  }
+}

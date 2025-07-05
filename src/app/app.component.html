@@ -1,0 +1,35 @@
+<div class="ion-page" id="main-content" style="color: #fff9de;" >
+
+
+  <ion-content class="main-content">
+    <ion-router-outlet></ion-router-outlet>
+  </ion-content>
+
+  <!-- Menú inferior fijo con 4 botones -->
+  <div class="bottom-menu" style="padding-top: 0; padding-bottom: 0; height: 90px; display: flex; align-items: flex-start; color: #fff9de;">
+    <button [class.active]="isActive('/mappa-semi')" (click)="navigateTo('/mappa-semi')" style="position: relative; background: none; border: none; box-shadow: none;">
+      <span style="display: block; position: relative; width: 90px; height: 90px; margin: 0 auto;">
+        <img *ngIf="isActive('/mappa-semi')" src="assets/selezione-icona.png" alt="Seleccionado" style="position: absolute; top: 0; left: 0; width: 90px; height: 90px; z-index: 1; pointer-events: none;" />
+        <img src="assets/mappa-icona.png" alt="Mappa" style="width: 90px; height: 90px; display: block; position: absolute; top: 0; left: 0; z-index: 2;" />
+      </span>
+    </button>
+    <button [class.active]="isActive('/lista-semi')" (click)="navigateTo('/lista-semi')" style="position: relative; background: none; border: none; box-shadow: none;">
+      <span style="display: block; position: relative; width: 90px; height: 90px; margin: 0 auto;">
+        <img *ngIf="isActive('/lista-semi')" src="assets/selezione-icona.png" alt="Seleccionado" style="position: absolute; top: 0; left: 0; width: 90px; height: 90px; z-index: 1; pointer-events: none;" />
+        <img src="assets/semi-icona.png" alt="Semi" style="width: 90px; height: 90px; display: block; position: absolute; top: 0; left: 0; z-index: 2;" />
+      </span>
+    </button>
+    <button [class.active]="isActive('/ricette')" (click)="navigateTo('/ricette')" style="position: relative; background: none; border: none; box-shadow: none;">
+      <span style="display: block; position: relative; width: 90px; height: 90px; margin: 0 auto;">
+        <img *ngIf="isActive('/ricette')" src="assets/selezione-icona.png" alt="Seleccionado" style="position: absolute; top: 0; left: 0; width: 90px; height: 90px; z-index: 1; pointer-events: none;" />
+        <img src="assets/ricette-icona.png" alt="Ricette" style="width: 90px; height: 90px; display: block; position: absolute; top: 0; left: 0; z-index: 2;" />
+      </span>
+    </button>
+    <button [class.active]="isActive('/profilo')" (click)="navigateTo('/profilo')" style="position: relative; background: none; border: none; box-shadow: none;">
+      <span style="display: block; position: relative; width: 90px; height: 90px; margin: 0 auto;">
+        <img *ngIf="isActive('/profilo')" src="assets/selezione-icona.png" alt="Seleccionado" style="position: absolute; top: 0; left: 0; width: 90px; height: 90px; z-index: 1; pointer-events: none;" />
+        <img src="assets/arpa-icona.png" alt="Profilo" style="width: 90px; height: 90px; display: block; position: absolute; top: 0; left: 0; z-index: 2;" />
+      </span>
+    </button>
+  </div>
+</div>
