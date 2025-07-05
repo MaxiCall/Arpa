@@ -2,7 +2,16 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 export const routes: Routes = [
-
+  {
+    path: '',
+    redirectTo: '/launch-screen',
+    pathMatch: 'full'
+  },
+  {
+    path: 'launch-screen',
+    loadComponent: () => import('./launch-screen/launch-screen.page').then(m => m.LaunchScreenPage),
+    data: { title: 'Germina' }
+  },
   {
     path: 'temi/acqua',
     loadComponent: () => import('./temi/acqua/acqua.page').then(m => m.AcquaPage),

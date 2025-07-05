@@ -1,0 +1,80 @@
+.launch-content {
+  --background: #fff9de;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+.launch-container {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #fff9de 0%, #ffe688 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: fadeInUp 1s ease-out;
+}
+
+.logo {
+  width: 250px;
+  height: 150px;
+  margin-bottom: 30px;
+  filter: drop-shadow(0 4px 8px rgba(29, 49, 5, 0.3));
+}
+
+.logo-text {
+  color: #1d3105;
+  
+  h1 {
+    font-family: 'Gaegu', cursive;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    text-shadow: 2px 2px 4px rgba(29, 49, 5, 0.2);
+  }
+  
+  p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 8px 0;
+    color: #697f42;
+    opacity: 0.9;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    width: 200px;
+    height: 120px;
+  }
+  
+  .logo-text h1 {
+    font-size: 2.8rem;
+  }
+  
+  .logo-text p {
+    font-size: 1rem;
+  }
+} 
